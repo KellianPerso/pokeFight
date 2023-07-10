@@ -19,8 +19,7 @@ class Card extends React.Component {
   };
 
   infoPoke = (info) => {
-    console.log("infoPoke", info);
-    console.log("infoPoke result", this.props.poke[info]);
+
     this.props.afficher(this.props.poke[info]);
   };
 

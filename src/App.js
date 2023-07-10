@@ -9,6 +9,8 @@ const API_URL = "https://api-pokemon-fr.vercel.app/api/v1/pokemon";
 function App() {
   const [poke, setPoke] = useState(null);
   const [info, setInfo] = useState(null);
+  const [fightInitiated, setFightInitiated] = useState(false);
+  const [pokeSelectorFight, setpokeSelectorFight] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -22,8 +24,14 @@ function App() {
     fetchData();
   }, []);
   function afficherPoke(e) {
-    console.log(e);
     setInfo(e) 
+    if (fightInitiated) {
+      setpokeSelectorFight(e)
+      
+    }
+  }
+  function enableFight() {
+    setFightInitiated(true)
   }
 
   return (
@@ -35,7 +43,7 @@ function App() {
         : 
           <div className="container-cards">
             <Afficher info={info}/>
-            <FightCard poke={poke}  afficher={afficherPoke}/>
+            <FightCard poke={poke}  afficher={afficherPoke} fightInitiated={fightInitiated} pokeSelectorFight={pokeSelectorFight} enableFight={enableFight}/>
             <h4>List Pokemon</h4>
             <Card poke={poke}  afficher={afficherPoke}/>
           </div>}

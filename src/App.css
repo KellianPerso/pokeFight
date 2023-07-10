@@ -153,44 +153,62 @@ li:hover {
                 0 0 0 (50px/25) #ddd,
                 0 0 0 (50px/14) black,
                 0 0 (50px/10) (50px/17) rgba(0,0,0,0.4);
-  }
-} */
-.u-flash {
-  animation: flash 3000ms infinite;
-}
-
-
+              }
+            } */
+            .u-flash {
+              animation: flash 3000ms infinite;
+            }
+            
+            .ring{
+            
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                justify-items: center;
+                align-items: center;
+                gap: 10px;
+              
+            }
+            
 .waitPokeFight {
   display: flex;
-  position: absolute;
   height: 100px;
   width: 100px;
-  background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50% );
+  background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50%);
   border-radius: 50%;
   border: 8px solid black;
-  
-}
-
-.waitPokeFight::before {
-  content: '';
-  position: absolute;
-  height: 8px;
-  width: 100px;
-  background: black;
-  top: 50px;
-  transform: translatey(-50%);
+  animation: ghost 2s linear infinite;
 }
 
 .waitPokeFight::after {
   content: '';
-  position: absolute;
-  height: 38px;
-  width: 38px;
+  position: relative;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   background: white;
-  top: 50px;
-  left: 50px;
-  transform: translate(-50%, -50%);
+  top: 27px;
+  left: 28px;
   box-shadow: inset 0 0 0 8px black, inset 0 0 0 10px white, inset 0 0 0 12px black;
+  animation: ghost 2s linear infinite;
+}
 
+@keyframes ghost {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.2;
+  }
+  45% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 1;
+  }
+}
+.fighter1 , .fighter2{
+  display: grid;
+}
+.fighter1 button , .fighter2 button{
+  margin-top: 25px;
 }
